@@ -41,7 +41,6 @@ def kilometers_to_miles():
     miles = (kilometers / 1.61)
     print("That's", miles, "miles!")
 
-
 if __name__ == '__main__':
     pass
 
@@ -56,5 +55,3 @@ shooting_percentage()
 coffee()
 
 kilometers_to_miles()
-
-
