@@ -46,12 +46,12 @@ if __name__ == '__main__':
 
 # instructions for running - uncomment the procedure you wish to test by removing the hashtag.
 
-calc_rec_area()
+#calc_rec_area()
 
-calc_volume()
+#calc_volume()
 
-shooting_percentage()
+#shooting_percentage()
 
-coffee()
+#coffee()
 
-kilometers_to_miles()
+#kilometers_to_miles()
