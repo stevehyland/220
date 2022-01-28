@@ -28,6 +28,8 @@ def multiplication_table():
         for icolumn in range(10):
             product = (irow + 1) * (icolumn + 1)
             print(product,end='\t')
+            #print(product,'\t', end='')
+
 
 def triangle_area():
 #
@@ -48,7 +50,7 @@ def sum_squares():
 #
     summed_squares = 0
     for i in range(lower, upper + 1):
-        summed_squares = summed_squares + (i ** 2)
+        summed_squares = summed_squares + (i * i)
 #
     print("Sum of the squares: ", summed_squares)
 
@@ -58,7 +60,7 @@ def power():
     exponent = eval(input("Input Exponent: "))
 #
     powered_up = base
-    for i in range(2, exponent +1):
+    for _ in range(2, exponent +1):
         powered_up = powered_up * base
 #    powered_up = math.pow(base,exponent)
     print(base, '^', exponent, '=', powered_up )
