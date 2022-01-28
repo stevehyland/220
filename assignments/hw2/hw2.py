@@ -24,11 +24,11 @@ def multiplication_table():
 #
     # product = int
     for irow in range(10):
+        print()
         for icolumn in range(10):
             product = (irow + 1) * (icolumn + 1)
             print(product,'\t',end='')
-    print()
-#
+
 def triangle_area():
 #
     area = float
@@ -66,7 +66,7 @@ def power():
 if __name__ == '__main__':
     pass
 #
-multiplication_table()
+#multiplication_table()
 #
 #triangle_area()
 #
