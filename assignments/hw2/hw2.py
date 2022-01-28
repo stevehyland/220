@@ -5,7 +5,7 @@ Name: <Steve Hyland>
 Problem: <HW2: write severl modules to illustrate loops and assignments >
 
 Certification of Authenticity:I certify that this assignment is entirely my own work with
- help from Mr. Baier on one issue.
+ help from Mr. Baier and the TA.
 
 """
 import math
@@ -27,7 +27,7 @@ def multiplication_table():
         print()
         for icolumn in range(10):
             product = (irow + 1) * (icolumn + 1)
-            print(product,'\t',end='')
+            print(product,end='\t')
 
 def triangle_area():
 #
