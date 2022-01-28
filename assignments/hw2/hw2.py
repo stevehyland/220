@@ -66,7 +66,7 @@ def power():
 if __name__ == '__main__':
     pass
 #
-#multiplication_table()
+multiplication_table()
 #
 #triangle_area()
 #
