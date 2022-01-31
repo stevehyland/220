@@ -19,7 +19,7 @@ def average():
         sum_total = sum_total + grade
     avg = sum_total / tot_grades
     print("average is ", avg)
-
+#
 def tip_jar():
     tip_total = float
     donation = float
@@ -40,8 +40,7 @@ def newton():
         approx = (approx + (xapprox/approx))/2
 #
     print("the square root is approximately ", approx)
-
-
+#
 def sequence():
     terms = int
     terms = eval(input("how many terms would you like? "))
