@@ -22,15 +22,8 @@ def traffic():
     daily_average = tot_total / idays
     print("Total number of vehicles traveled on all roads:", tot_total)
     print("Average number of vehicles per road ", round(daily_average,2))
-
-
-
-
-
-    #print(roads_tot, days)
-
-
-traffic()
+#
+#traffic()
 
 
 
