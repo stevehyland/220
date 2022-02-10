@@ -25,6 +25,8 @@ def means():
 #
     rms = math.sqrt(rms_sum/numbers)
     har_mean = numbers/har_mean_sum
+
+
     geo_mean = geo_mean_sum **(1/numbers)
 
     print("RMS :", rms)
