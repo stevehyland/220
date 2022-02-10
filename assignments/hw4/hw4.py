@@ -119,7 +119,6 @@ def pi2():
     print("pi approximation",pi4)
     print("accuaracy: ",accuracy)
 #
-#
 #if __name__ == '__main__':
 #    pass
 #
