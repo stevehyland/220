@@ -28,7 +28,7 @@ def multiplication_table():
         for icolumn in range(10):
             product = (irow + 1) * (icolumn + 1)
             print(product,end='\t')
-            #print(product,'\t', end='')
+            i#print(product,'\t', end='')
 
 
 def triangle_area():

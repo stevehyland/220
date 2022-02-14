@@ -1,8 +1,6 @@
 """
 Steve Hyland
-File Name: lab1.py
-Lab1 Assignment 1: Calculate Monthly Interest of a credit card.
-I did this alone but asked Lab instructor questions
+\
 """
 
 

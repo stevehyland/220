@@ -7,7 +7,7 @@ Problem: <Homework assignmet 1 - modify existing code and add code per assignmen
 Certification of Authenticity: I certify that this assignment is entirely my own work.
 """
 
-# Provided Code - no changes to the code except deletion of the PASS statement
+,# Provided Code - no changes to the code except deletion of the PASS statement
 def calc_rec_area():
     length = eval(input("Enter the length: "))
     width = eval(input("Enter the width: "))

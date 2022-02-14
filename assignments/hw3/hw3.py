@@ -70,8 +70,7 @@ def pi():
     pi_div2 = pi_div2 * 2.
     print("approx value of pi:",pi_div2)
 #
-if __name__ == '__main__':
-    pass
+;
 #
 #average()
 #
