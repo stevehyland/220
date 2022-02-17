@@ -53,8 +53,7 @@ def triangle():
 
     win.getMouse()
 
-
-
+#
 def color_shape():
     '''Create code to allow a user to color a shape by entering rgb amounts'''
 
