@@ -70,8 +70,7 @@ def pi():
     pi_div2 = pi_div2 * 2.
     print("approx value of pi:",pi_div2)
 #
-;
-#
+
 #average()
 #
 #tip_jar()
