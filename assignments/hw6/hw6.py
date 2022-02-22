@@ -1,14 +1,11 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: <Steve Hyland>
+HW6.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves,
- in your own words.>
+Problem: <Strings, formatting, functions>
 
-Certification of Authenticity:
-<include one of the following>
-I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+Certification of Authenticity: I certify that this assignment is entirely my own work.
+
 """
 
 import math
