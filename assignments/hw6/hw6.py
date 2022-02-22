@@ -2,7 +2,8 @@
 Name: <your name goes here – first and last>
 <ProgramName>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: <Brief, one or two sentence description of the problem that this program solves,
+ in your own words.>
 
 Certification of Authenticity:
 <include one of the following>
@@ -10,35 +11,60 @@ I certify that this assignment is entirely my own work.
 I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
-
+import math
 def cash_converter():
-    pass
-
+    int_in = eval(input("enter an integer: "))
+    print("That is ${0:0.2f}".format(int_in))
 
 def encode():
-    pass
+    message_in = input("enter a message: ")
+    key_in = eval(input("enter a key: "))
+    new_string = ""
+    for letter in message_in:
+        new_ord = ord(letter) + key_in
+        new_chr = chr(new_ord)
+        new_string = new_string + new_chr
+    print(new_string)
 
-
+#
 def sphere_area(radius):
-    pass
+    surface_area = 4 * math.pi * radius ** 2
+    return surface_area
 
-
+#
 def sphere_volume(radius):
-    pass
+    sphere_vol = 4/3 * math.pi * radius ** 3
+    return sphere_vol
 
-
+#
 def sum_n(number):
-    pass
+    sum_num = 0
+    for i in range(number):
+        sum_num = sum_num + (i + 1)
+    return sum_num
 
-
+#
 def sum_n_cubes(number):
-    pass
+    sum_num_cubes = 0
+    for i in range(number):
+        sum_num_cubes = sum_num_cubes + (i +1) ** 3
+    return sum_num_cubes
 
-
+#
 def encode_better():
-    pass
+    msg_in = input("enter a message: ")
+    key_in = input("enter a key: ")
+    len_key = len(key_in)
+    len_msg = len(msg_in)
+    msg_out = ""
+    for idx_in in range(len_msg):
+        key_off = idx_in % len_key
+        new_ord = ord((msg_in[idx_in])) + (ord(key_in[key_off]) - 130)
+        new_ord1 = (new_ord % 58) + 65
+        msg_out = msg_out + chr(new_ord1)
+    print(msg_out)
 
-
+#
 if __name__ == '__main__':
     # cash_converter()
     # encode()
@@ -52,3 +78,7 @@ if __name__ == '__main__':
     # print(res)
     # encode_better()
     pass
+#cash_converter()
+#encode()
+#encode_better()
+#
