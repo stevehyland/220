@@ -41,4 +41,4 @@ def weighted_average(in_file_name, out_file_name):
     infile.close()
     outfile.close()
 #
-#weighted_average("grades.txt", "report1.txt")
+weighted_average("grades.txt", "report1.txt")
