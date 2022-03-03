@@ -3,7 +3,6 @@ Steve Hyland
 File Name: lab7.py
 Lab Assignment 7: File processing - input and output.  If statements.
 I did this alone.
-
 """
 def weighted_average(in_file_name, out_file_name):
     infile = open(in_file_name, "r" )
