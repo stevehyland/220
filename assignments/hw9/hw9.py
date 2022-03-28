@@ -6,29 +6,29 @@ Problem: Hangman - Functions, decisions, while loops, and graphics
 
 Certification of Authenticity:
 <include one of the following>
-I certify that this assignment is entirely my own work.
+I certify that this assignment is entirely my own work with input from Prof. Baier.
 
 """
 #
-from graphics import GraphWin, Circle, Line, Point, Entry, Text
-
 import random
+from graphics import GraphWin, Circle, Line, Point, Entry, Text
 #
 def get_words(file_name):
 # open the file and get the words, then close the file
     infile = open(file_name, "r")
-    words_str = infile.read()
+    words_in = infile.readlines()
     infile.close()
-    words = words_str.split('\n')
-    return words
+    #words = words_str.split('\n')
+    #words = words_str.split()
+    return words_in
 #
 def get_random_word(words):
 # select a word randomly and return
     num_words = len(words)
     word_num = random.randint(0, (num_words -1))
-    secret_word = words[word_num]
+    new_secret_word = words[word_num].strip('\n')
     #print(secret_word)
-    return secret_word
+    return new_secret_word
 #
 def letter_in_secret_word(letter, secret_word):
     #print('In letter_in_secret_word', secret_word)
@@ -42,11 +42,11 @@ def already_guessed(letter, guesses):
     #print('in already guessed', letter,guesses)
     if len(guesses) == 0:
         guesses.append(letter)
-        return
-    else:
-        for idx in range(len(guesses)):
-            if letter == guesses[idx]:
-                return True
+        return False
+    #else:
+    for idx in range(len(guesses)):
+        if letter == guesses[idx]:
+            return True
     guesses.append(letter)
     return False
 #
@@ -61,42 +61,39 @@ def make_hidden_secret(secret_word, guesses):
         if hit == 'n':
             work_string = work_string + '_ '
 #
-    #print(work_string)
-    work_string.rstrip()
+    work_string = work_string.rstrip()
     return work_string
 #
 def won(guessed):
     for idx in range(len(guessed)):
         if guessed[idx] == '_':
-            #print('False')
             return False
-        #else:
-            #print('True')
     return True
 #
 def play_graphics(secret_word):
+#
     width_px = 700
     height_px = 700
     win = GraphWin("Hangman", width_px, height_px)
     in_msg = Text(Point(250, 675), "Enter Letter")
     in_msg.draw(win)
-    guess_box = Entry(Point(310,625), 10)
+    guess_box = Entry(Point(310, 625), 10)
     guess_box.setFill('white')
     guess_box.setText('- - - - - -')
     guess_box.draw(win)
-    entry_box = Entry(Point(295,675), 1)
+    entry_box = Entry(Point(295, 675), 1)
     entry_box.setFill('white')
     entry_box.setText("")
     entry_box.draw(win)
-    bot_line = Line(Point(200, 600), Point(500,600))
+    bot_line = Line(Point(200, 600), Point(500, 600))
     bot_line.draw(win)
-    main_line = Line(Point(400, 100), Point(400,600))
+    main_line = Line(Point(400, 100), Point(400, 600))
     main_line.draw(win)
-    top_line = Line(Point(275, 100), Point(400,100))
+    top_line = Line(Point(275, 100), Point(400, 100))
     top_line.draw(win)
-    cen_line = Line(Point(275, 100), Point(275,175))
+    cen_line = Line(Point(275, 100), Point(275, 175))
     cen_line.draw(win)
-    a_box = Entry(Point(600,40), 1)
+    a_box = Entry(Point(600, 40), 1)
     a_box.setText('a')
     a_box.setFill('white')
     a_box.draw(win)
@@ -104,7 +101,7 @@ def play_graphics(secret_word):
     b_box.setText('b')
     b_box.setFill('white')
     b_box.draw(win)
-    c_box = Entry(Point(600,70), 1)
+    c_box = Entry(Point(600, 70), 1)
     c_box.setText('c')
     c_box.setFill('white')
     c_box.draw(win)
@@ -112,7 +109,7 @@ def play_graphics(secret_word):
     d_box.setText('d')
     d_box.setFill('white')
     d_box.draw(win)
-    e_box = Entry(Point(600,100), 1)
+    e_box = Entry(Point(600, 100), 1)
     e_box.setText('e')
     e_box.setFill('white')
     e_box.draw(win)
@@ -120,7 +117,7 @@ def play_graphics(secret_word):
     f_box.setText('f')
     f_box.setFill('white')
     f_box.draw(win)
-    g_box = Entry(Point(600,130), 1)
+    g_box = Entry(Point(600, 130), 1)
     g_box.setText('g')
     g_box.setFill('white')
     g_box.draw(win)
@@ -128,7 +125,7 @@ def play_graphics(secret_word):
     h_box.setText('h')
     h_box.setFill('white')
     h_box.draw(win)
-    i_box = Entry(Point(600,160), 1)
+    i_box = Entry(Point(600, 160), 1)
     i_box.setText('i')
     i_box.setFill('white')
     i_box.draw(win)
@@ -136,7 +133,7 @@ def play_graphics(secret_word):
     j_box.setText('j')
     j_box.setFill('white')
     j_box.draw(win)
-    k_box = Entry(Point(600,190), 1)
+    k_box = Entry(Point(600, 190), 1)
     k_box.setText('k')
     k_box.setFill('white')
     k_box.draw(win)
@@ -144,7 +141,7 @@ def play_graphics(secret_word):
     l_box.setText('l')
     l_box.setFill('white')
     l_box.draw(win)
-    m_box = Entry(Point(600,220), 1)
+    m_box = Entry(Point(600, 220), 1)
     m_box.setText('m')
     m_box.setFill('white')
     m_box.draw(win)
@@ -152,7 +149,7 @@ def play_graphics(secret_word):
     n_box.setText('n')
     n_box.setFill('white')
     n_box.draw(win)
-    o_box = Entry(Point(600,250), 1)
+    o_box = Entry(Point(600, 250), 1)
     o_box.setText('o')
     o_box.setFill('white')
     o_box.draw(win)
@@ -160,7 +157,7 @@ def play_graphics(secret_word):
     p_box.setText('p')
     p_box.setFill('white')
     p_box.draw(win)
-    q_box = Entry(Point(600,280), 1)
+    q_box = Entry(Point(600, 280), 1)
     q_box.setText('q')
     q_box.setFill('white')
     q_box.draw(win)
@@ -168,7 +165,7 @@ def play_graphics(secret_word):
     r_box.setText('r')
     r_box.setFill('white')
     r_box.draw(win)
-    s_box = Entry(Point(600,310), 1)
+    s_box = Entry(Point(600, 310), 1)
     s_box.setText('s')
     s_box.setFill('white')
     s_box.draw(win)
@@ -176,7 +173,7 @@ def play_graphics(secret_word):
     t_box.setText('t')
     t_box.setFill('white')
     t_box.draw(win)
-    u_box = Entry(Point(600,340), 1)
+    u_box = Entry(Point(600, 340), 1)
     u_box.setText('u')
     u_box.setFill('white')
     u_box.draw(win)
@@ -184,7 +181,7 @@ def play_graphics(secret_word):
     v_box.setText('v')
     v_box.setFill('white')
     v_box.draw(win)
-    w_box = Entry(Point(600,370), 1)
+    w_box = Entry(Point(600, 370), 1)
     w_box.setText('w')
     w_box.setFill('white')
     w_box.draw(win)
@@ -192,7 +189,7 @@ def play_graphics(secret_word):
     x_box.setText('x')
     x_box.setFill('white')
     x_box.draw(win)
-    y_box = Entry(Point(600,400), 1)
+    y_box = Entry(Point(600, 400), 1)
     y_box.setText('y')
     y_box.setFill('white')
     y_box.draw(win)
@@ -229,6 +226,7 @@ def play_graphics(secret_word):
         win.getMouse()
         #print(ltr_in)
         if ltr_in == 'a':
+            #setattr(win, a_box, 'pink')
             a_box.setFill('pink')
         elif ltr_in == 'b':
             b_box.setFill('pink')
@@ -282,9 +280,7 @@ def play_graphics(secret_word):
             z_box.setFill('pink')
 #
         in_list = already_guessed(ltr_in, guesses)
-        if in_list:
-            continue
-        else:
+        if not in_list:
             in_secret_word = letter_in_secret_word(ltr_in, secret_word)
             #if in_secret_word == True:
             if in_secret_word:
@@ -334,18 +330,16 @@ def print_and_prompt(guesses_left, guesses, hidden_word):
     if len(guesses) == 0:
         print(']')
     else:
-        #l_guesses = len(guesses)
         for idx in range(len(guesses)):
             if idx == 0:
-                print("'", guesses[idx - 1], "'", end = "")
+                print(guesses[idx - 1], end = "")
             else:
-                print(", '", guesses[idx-1], "'", end = "" )
+                print(guesses[idx - 1], end="")
         print(']')
     print('guesses remaining:', guesses_left)
     for ltrs in range (len(hidden_word)):
         if ltrs < (len(hidden_word)):
             print(hidden_word[ltrs], end = "")
-        #print(hidden_word(ltrs))
     print()
     ltr_in = input('guess a letter: ')
     return ltr_in
@@ -365,24 +359,25 @@ def play_command_line(secret_word):
         if success:
             print('winner!')
             print(word_string)
-            quit()
+            break
 #
         ltr_in = print_and_prompt(guesses_left, guesses, word_string)
         print(ltr_in)
         in_list = already_guessed(ltr_in, guesses)
-        if in_list:
+        if in_list is True:
             continue
-        else:
-            in_secret_word = letter_in_secret_word(ltr_in, secret_word)
-            if (in_secret_word):
-                for idx in range(len(secret_word)):
-                    if secret_word[idx] == ltr_in:
-                        hidden_word[idx] = ltr_in
-            else:
-                # draw carcus
-                guesses_left = guesses_left - 1
 #
-    print('sorry, you did not guess the word.')
+        in_secret_word = letter_in_secret_word(ltr_in, secret_word)
+        if in_secret_word:
+            for idx in range(len(secret_word)):
+                if secret_word[idx] == ltr_in:
+                    hidden_word[idx] = ltr_in
+        else:
+            # draw carcus
+            guesses_left = guesses_left - 1
+#
+    if guesses_left == 0:
+        print('sorry, you did not guess the word.')
 #
 
 if __name__ == '__main__':
@@ -398,4 +393,3 @@ if __name__ == '__main__':
 #
     print('Finis!')
 #
-#my_main()
