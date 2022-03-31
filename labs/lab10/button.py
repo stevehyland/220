@@ -5,7 +5,7 @@ Lab Assignment 10 : classes & graphics
 I did this alone.
 """
 #
-
+#
 #import graphics
 #import time
 #from graphics import Text, Point

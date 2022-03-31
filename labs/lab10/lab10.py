@@ -9,7 +9,7 @@ from graphics import GraphWin, Point, Rectangle, Text
 from button import Button
 from door import Door
 def main():
-#
+##
     width_px = 700
     height_px = 700
     win = GraphWin("Text", width_px, height_px)
