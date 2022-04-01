@@ -222,8 +222,9 @@ def play_graphics(secret_word):
             return
 #
         #print('Word String: ', word_string)
-        ltr_in = entry_box.getText()
         win.getMouse()
+        ltr_in = entry_box.getText()
+        #win.getMouse()
         #print(ltr_in)
         if ltr_in == 'a':
             #setattr(win, a_box, 'pink')
