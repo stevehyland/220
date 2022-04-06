@@ -94,6 +94,11 @@ def main():
                 losses += 1
                 text_losses.setText(str(losses))
                 msg1.setText('Sorry, incorrect')
+                if secret_door == 2:
+                    door2_rec.setFill('green')
+                else:
+                    door3_rec.setFill('green')
+#
         if door2.is_clicked(clicked):
             if door2.is_secret():
                 door2_rec.setFill('green')
@@ -105,6 +110,11 @@ def main():
                 losses += 1
                 text_losses.setText(str(losses))
                 msg1.setText('Sorry, incorrect')
+                if secret_door == 1:
+                    door1_rec.setFill('green')
+                else:
+                    door3_rec.setFill('green')
+#
         if door3.is_clicked(clicked):
             if door3.is_secret():
                 door3_rec.setFill('green')
@@ -116,6 +126,10 @@ def main():
                 losses += 1
                 text_losses.setText(str(losses))
                 msg1.setText('Sorry, incorrect')
+                if secret_door == 1:
+                    door1_rec.setFill('green')
+                else:
+                    door2_rec.setFill('green')
 #
         clicked = win.getMouse()
         door1_rec.setFill('saddle brown')
