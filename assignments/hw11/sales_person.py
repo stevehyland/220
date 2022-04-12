@@ -11,6 +11,8 @@ I certify that this assignment is entirely my own work.
 #
 '''
 #
+#imported by sales_force
+#
 class SalesPerson:
     def __init__(self, employee_id, name):
         self.employee_id = employee_id
@@ -31,7 +33,9 @@ class SalesPerson:
 #
     def total_sales(self):
         sales_total = 0.0
-        sales_total = sum(self.sales)
+        for indx in range(len(self.sales)):
+            sales_total = sales_total + float(self.sales[indx])
+        #sales_total = sum(self.sales)
         # for sale in self.sales:
         #     sales_total = sales_total + sale
         return sales_total
@@ -41,52 +45,53 @@ class SalesPerson:
 #
     def met_quota(self, quota):
         tot_sales = self.total_sales()
-        if tot_sales >= quota:
+        fquota = float(quota)
+        if tot_sales >= fquota:
             return True
         return False
 #
-    def compare_to(self, other):
-        tot_sales = self.total_sales()
-        other_tot = other.total_sales()
-        if other_tot > tot_sales:
-            return -1
-        return 1
+    # def compare_to(self, other):
+    #     tot_sales = self.total_sales()
+    #     other_tot = other.total_sales()
+    #     if other_tot > tot_sales:
+    #         return -1
+    #     return 1
 #
-    def __str__(self):
-        tot_sales = self.total_sales()
-        employee_id_chr = str(self.employee_id)
-        str_out = employee_id_chr + '-' + self.name + ': ' # + str(tot_sales)
-        return str_out
-
-def my_test():
-    other = SalesPerson(1235,'Trader Joe')
-    sperson = my_sales.get_name()
-    print(sperson)
-    # sperson_id = my_sales.get_id()
-    # #print(sperson_id)
-    # other.enter_sale(150.00)
-    # other.enter_sale(200.00)
-    # other.enter_sale(125.00)
-    # my_sales = SalesPerson(1234,'Steve Hyland')
-    # sperson = my_sales.get_name()
-    # print(sperson)
-    # sperson_id = my_sales.get_id()
-    # print(sperson_id)
-    # my_sales.enter_sale(150.00)
-    # my_sales.enter_sale(200.00)
-    # my_sales.enter_sale(123.45)
-    # tot_sales = my_sales.total_sales()
-    # print(tot_sales)
-    # all_sales = my_sales.get_sales()
-    # for sale in all_sales:
-    #     print(sale)
-    # good_job = my_sales.met_quota(400.00)
-    # print(good_job)
-    # did_he = my_sales.compare_to(other)
-    # print(did_he)
-    # currency = "${:,.2f}".format(tot_sales)
-    # print(currency)
-    # my_string = my_sales.__str__()
-    # print(my_string, currency)
-
+    # def __str__(self):
+    #     tot_sales = self.total_sales()
+    #     employee_id_chr = str(self.employee_id)
+    #     str_out = employee_id_chr + '-' + self.name + ': ' # + str(tot_sales)
+    #     return str_out
+#
+# def my_test():
+#     other = SalesPerson(1235,'Trader Joe')
+#     sperson = other.get_name()
+#     print(sperson)
+#     sperson_id = other.get_id()
+#     #print(sperson_id)
+#     other.enter_sale(150.00)
+#     other.enter_sale(200.00)
+#     other.enter_sale(125.00)
+#     my_sales = SalesPerson(1234,'Steve Hyland')
+#     sperson = my_sales.get_name()
+#     print(sperson)
+#     sperson_id = my_sales.get_id()
+#     print(sperson_id)
+#     my_sales.enter_sale(150.00)
+#     my_sales.enter_sale(200.00)
+#     my_sales.enter_sale(123.45)
+#     tot_sales = my_sales.total_sales()
+#     print(tot_sales)
+#     all_sales = my_sales.get_sales()
+#     for sale in all_sales:
+#         print(sale)
+#     good_job = my_sales.met_quota(400.00)
+#     print(good_job)
+#     did_he = my_sales.compare_to(other)
+#     print(did_he)
+#     currency = "${:,.2f}".format(tot_sales)
+#     print(currency)
+#     my_string = my_sales.__str__()
+#     print(my_string, currency)
+#
 #my_test()
