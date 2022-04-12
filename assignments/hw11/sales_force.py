@@ -28,24 +28,29 @@ class SalesForce:
         #self.sales_people = infile.readlines()
         my_file = infile.readlines()
         infile.close()
+
         for idx in range(len(my_file)):
             my_file[idx] = my_file[idx].strip('\n')
 # now, instantiate one instance for each person
 #  I'm using a separate loop for clarity (mine!)
         for record in (my_file):
+            new_person = 0
             work_list.clear()
             sales_list.clear()
             work_list = record.split(',')
-            #print(type(work_list[1]))
+            work_list[0] = int(work_list[0])
+            #work_list[0] = temp_int
+            work_list[1] = work_list[1].lstrip()
+            print(type(work_list[0]), type(work_list[1]))
             # now add the person
             new_person = sales_person.SalesPerson(work_list[0], work_list[1])
-            work_list[0] = work_list[0].lstrip()
-            work_list[0] = work_list[0].rstrip()
             work_list[2] = work_list[2].lstrip()
             sales_list = work_list[2].split(' ')
             # now add thier sales
             for sale in (sales_list):
-                new_person.enter_sale(sale)
+                fsale = float(sale)
+                fsale = round(fsale,2)
+                new_person.enter_sale(fsale)
             # now add the object reference to the sales people list
             self.sales_people.append(new_person)
         #print(self.sales_people)
@@ -56,8 +61,8 @@ class SalesForce:
         #     print(p_id, p_nombre, p_sales)
 #
     def individual_sales(self, emp_id):
-        if type(emp_id) != str:
-            c_emp_id = str(emp_id)
+        if type(emp_id) != int:
+            c_emp_id = int(emp_id)
         else:
             c_emp_id = emp_id
 
@@ -91,12 +96,15 @@ class SalesForce:
             quota_work.append(total_sales)
             met_quota = sales_person.met_quota(650)
             quota_work.append(met_quota)
+            print('quota_work before append: ', quota_work)
+            print('quota_list before append', quota_list)
             quota_list.append(quota_work)
             #quota_list.insert(0,quota_work)
-            print('quota_list entry: ', quota_list[len(quota_list) - 1])
-            print(quota_list)
-        for idx in range(len(quota_list)):
-            print(quota_list[idx])
+            print('quota_work after append: ', quota_work)
+            print('quota_list after append', quota_list)
+            print()
+        # for idx in range(len(quota_list)):
+        #     print(quota_list[idx])
         return quota_list
 #
     def top_seller(self):
@@ -143,19 +151,26 @@ class SalesForce:
                 sales_dict[sales_amt] = sales_dict.get(sales_amt,0) + 1
         return sales_dict
 #
+    def print_salesmen_sales(self):
+        for person in (self.sales_people):
+            emp_id = person.get_id()
+            sales = person.get_sales()
+            print(emp_id, sales)
+
 def my_test():
     top_sellers = []
     sales_dict = {}
     sales_guys = SalesForce() # instantiate class
     sales_guys.add_data('sales_data.txt')
-    #who = sales_guys.individual_sales('567')
-    #print(who)
+    sales_guys.print_salesmen_sales()
+    # emp_id = person.get_id
+    # who = sales_guys.individual_sales(emp_id)
+    # print(who)
     quota_rpt = sales_guys.quota_report(650.00)
     #sales_dict = sales_guys.get_sale_frequencies()
     #print(sales_dict)
     #top_sellers = sales_guys.top_seller()
     #print('top sellers: ', top_sellers)
-
 
 #
 my_test()
