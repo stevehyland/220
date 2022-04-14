@@ -5,7 +5,6 @@ Lab Assignment 12 : functions, lists
 I did this alone.
 """
 #
-
 #
 def read_data(filename):
     num_list = []
