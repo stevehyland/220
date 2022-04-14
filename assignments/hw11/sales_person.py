@@ -14,6 +14,7 @@ I certify that this assignment is entirely my own work.
 #imported by sales_force
 #
 class SalesPerson:
+    """ class representing a sales person"""
     def __init__(self, employee_id, name):
         self.employee_id = employee_id
         self.name = name
@@ -35,9 +36,6 @@ class SalesPerson:
         sales_total = 0.0
         for indx in range(len(self.sales)):
             sales_total = sales_total + float(self.sales[indx])
-        #sales_total = sum(self.sales)
-        # for sale in self.sales:
-        #     sales_total = sales_total + sale
         return sales_total
 #
     def get_sales(self):
@@ -50,18 +48,20 @@ class SalesPerson:
             return True
         return False
 #
-    # def compare_to(self, other):
-    #     tot_sales = self.total_sales()
-    #     other_tot = other.total_sales()
-    #     if other_tot > tot_sales:
-    #         return -1
-    #     return 1
+    def compare_to(self, other):
+        tot_sales = self.total_sales()
+        other_tot = other.total_sales()
+        if other_tot > tot_sales:
+            return -1
+        if other_tot < tot_sales:
+            return 1
+        return 0
 #
-    # def __str__(self):
-    #     tot_sales = self.total_sales()
-    #     employee_id_chr = str(self.employee_id)
-    #     str_out = employee_id_chr + '-' + self.name + ': ' # + str(tot_sales)
-    #     return str_out
+    def __str__(self):
+        tot_sales = self.total_sales()
+        employee_id_chr = str(self.employee_id)
+        str_out = employee_id_chr + '-' + self.name + ':' + str(tot_sales)
+        return str_out
 #
 # def my_test():
 #     other = SalesPerson(1235,'Trader Joe')
