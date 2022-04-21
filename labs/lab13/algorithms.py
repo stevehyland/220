@@ -76,16 +76,8 @@ def rec_sort(rectangles):
     rectangles = sorted_by_area
     #print(sorted_by_area)
     #print(rectangles)
-
-
-
-
-
-
-
-
-
-def main():
+#
+#def main():
 #     print(read_data('data_sorted.txt'))
 #     values = []
 #     values.append('Steve')
